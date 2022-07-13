@@ -35,3 +35,5 @@ unique (subid ,studentid),
 foreign key (subid) references `subject`(subid) ,
 foreign key (studentid) references `student`(studentid) 
 );
+
+alter 
