@@ -3,32 +3,32 @@ create database quan_ly_ban_hang ;
 use quan_ly_ban_hang ;
 
 create table customer (
-customerid int not null primary key ,
-customername varchar(30) ,
-customerage int
+	customer_id int not null primary key ,
+	customer_name varchar(30) ,
+	customer_age int
 );
 
 create table `order` (
-orderid int not null primary key ,
-orderdate date,
-order_total_price double ,
-customerid int ,
-foreign key (customerid) references customer(customerid) 
+	order_id int not null primary key ,
+	order_date date,
+	order_total_price double ,
+	customer_id int ,
+	foreign key (customer_id) references customer(customer_id) 
 ) ;
 
-create table orderdetail (
-orderid int ,
-productid int ,
-primary key (orderid,productid),
-foreign key (orderid) references `order`(orderid) ,
-foreign key (productid) references product(productid) ,
-orderQTY varchar(30)
+create table order_detail (
+	order_id int ,
+	product_id int ,
+	primary key (order_id,product_id),
+	foreign key (order_id) references `order`(order_id) ,
+	foreign key (product_id) references product(product_id) ,
+	order_qty varchar(30)
 ) ;
 
 create table product (
-productid int not null primary key ,
-productname varchar(35),
-product_price double
+	product_id int not null primary key ,
+	product_name varchar(35),
+	product_price double
 );
 
 

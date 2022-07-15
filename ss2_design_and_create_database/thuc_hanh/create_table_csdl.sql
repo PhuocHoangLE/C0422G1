@@ -1,35 +1,35 @@
 create database quanlydiemthi ;
 use quanlydiemthi ;
 
-create table hocsinh (
-mahs varchar(20) primary key ,
-tenhs varchar(20) ,
-ngaysinh datetime,
-lop varchar(20),
-gt varchar(20)
+create table hoc_sinh (
+	ma_hs varchar(20) primary key ,
+	ten_hs varchar(20) ,
+	ngay_sinh datetime,
+	lop varchar(20),
+	gt varchar(20)
 ) ;
 
-create table monhoc (
-mamh varchar(20) primary key ,
-tenmh varchar(50)
+create table mon_hoc (
+	ma_mh varchar(20) primary key ,
+	ten_mh varchar(50)
 );
 
-create table bangdiem (
-mahs varchar(20),
-mamh varchar(20),
-diemthi int ,
-ngaykt datetime ,
-primary key (mahs , mamh) ,
-foreign key (mahs) references hocsinh(mahs) ,
-foreign key (mamh) references monhoc(mamh) 
+create table bang_diem (
+	ma_hs varchar(20),
+	ma_mh varchar(20),
+	diem_thi int ,
+	ngay_kt datetime ,
+	primary key (ma_hs , ma_mh) ,
+	foreign key (ma_hs) references hoc_sinh(ma_hs) ,
+	foreign key (ma_mh) references mon_hoc(ma_mh) 
 );
 
-create table giaovien (
-magv varchar(20) primary key ,
-tengv varchar(20) ,
-sdt varchar(10)
+create table giao_vien (
+	ma_gv varchar(20) primary key ,
+	ten_gv varchar(20) ,
+	sdt varchar(10)
 );
 
-alter table monhoc add magv varchar(20) ;
-alter table monhoc add constraint fk_magv 
-foreign key (magv) references giaovien(magv) ;
+alter table mon_hoc add ma_gv varchar(20) ;
+alter table mon_hoc add constraint fk_magv 
+foreign key (ma_gv) references giao_vien(ma_gv) ;

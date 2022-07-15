@@ -39,7 +39,9 @@ create table chi_tiet_phieu_nhap (
 
 create table don_dh (
 	so_dh int primary key ,
-	ngay_dh date
+	ngay_dh date ,
+    ma_cc int ,
+    foreign key(ma_cc) references nha_cc(ma_cc)
 );
 
 create table chi_tiet_don_dat_hang (
@@ -54,14 +56,6 @@ create table nha_cc (
 	ma_ncc int primary key ,
 	ten_ncc varchar(45),
 	dia_chi varchar(45)
-) ;
-
-create table cc (
-	ma_ncc int ,
-	so_dh int ,
-	primary key(ma_ncc,so_dh),
-	foreign key (ma_ncc) references nha_cc(ma_ncc),
-	foreign key (so_dh) references don_dh(so_dh)
 ) ;
 
 create table so_dien_thoai (
