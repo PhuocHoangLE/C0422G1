@@ -1,16 +1,32 @@
-use quanlysinhvien ;
+use quanlysinhvien;
 -- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
-select *
-from `subject` 
-where credit ;
+SELECT 
+    *
+FROM
+    `subject`
+WHERE
+    credit;
 -- Hiển thị các thông tin môn học có điểm thi lớn nhất.
-select *
-from `subject`
-where sub_id = (select sub_id from mark where mark = (select max(mark.mark) from mark)) ;
+SELECT 
+    *
+FROM
+    `subject`
+WHERE
+    sub_id = (SELECT 
+            sub_id
+        FROM
+            mark
+        WHERE
+            mark = (SELECT 
+                    MAX(mark.mark)
+                FROM
+                    mark));
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
-select * ,
-avg(ifnull(mark.mark,0)) as diem_trung_binh
-from student 
-left join mark on student.student_id = mark.student_id
-group by student.student_id 
-order by mark.mark desc ;
+SELECT 
+    *, AVG(IFNULL(mark.mark, 0)) AS diem_trung_binh
+FROM
+    student
+        LEFT JOIN
+    mark ON student.student_id = mark.student_id
+GROUP BY student.student_id
+ORDER BY mark.mark DESC;

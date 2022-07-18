@@ -7,7 +7,7 @@ use ban_hang ;
 create table phieu_xuat (
 	so_px int primary key ,
 	ngay_xuat date
-) ;
+);
 
 create table vat_tu (
 	ma_vtu int primary key ,
@@ -56,7 +56,7 @@ create table nha_cc (
 	ma_ncc int primary key ,
 	ten_ncc varchar(45),
 	dia_chi varchar(45)
-) ;
+);
 
 create table so_dien_thoai (
 	id int primary key ,

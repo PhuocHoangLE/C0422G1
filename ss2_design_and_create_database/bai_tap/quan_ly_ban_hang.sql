@@ -14,7 +14,7 @@ create table `order` (
 	order_total_price double ,
 	customer_id int ,
 	foreign key (customer_id) references customer(customer_id) 
-) ;
+);
 
 create table order_detail (
 	order_id int ,
@@ -23,7 +23,7 @@ create table order_detail (
 	foreign key (order_id) references `order`(order_id) ,
 	foreign key (product_id) references product(product_id) ,
 	order_qty varchar(30)
-) ;
+);
 
 create table product (
 	product_id int not null primary key ,
