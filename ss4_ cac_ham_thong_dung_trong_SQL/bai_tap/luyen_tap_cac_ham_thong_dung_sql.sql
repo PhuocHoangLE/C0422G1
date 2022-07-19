@@ -22,11 +22,10 @@ WHERE
                 FROM
                     mark));
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
-SELECT 
-    *, AVG(IFNULL(mark.mark, 0)) AS diem_trung_binh
-FROM
-    student
-        LEFT JOIN
-    mark ON student.student_id = mark.student_id
+SELECT student.*, 
+			AVG(mark.mark) 
+            AS diem_trung_binh
+FROM student
+			JOIN mark ON student.student_id = mark.student_id
 GROUP BY student.student_id
-ORDER BY mark.mark DESC;
+ORDER BY diem_trung_binh DESC;
